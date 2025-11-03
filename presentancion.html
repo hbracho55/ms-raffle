@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación de Proyecto de Transferencias</title>
+    <!-- Incluye Tailwind CSS desde CDN para un estilo moderno y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Utiliza la fuente Inter de Google Fonts para una tipografía limpia y profesional -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Fondo con degradado sutil para un aspecto más premium */
+            background: linear-gradient(135deg, #1f2937, #374151);
+        }
+        .section-divider {
+            height: 3px;
+            width: 100%;
+            /* Divisor con un color más llamativo */
+            background-color: #f9a8d4;
+            margin: 2.5rem 0;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-8">
+    <!-- Contenedor principal de la presentación -->
+    <div class="bg-gray-800 rounded-3xl shadow-2xl max-w-4xl w-full p-8 md:p-12 text-gray-200 transform transition-transform duration-500 hover:scale-[1.01] border border-gray-700">
+
+        <!-- Título principal con un color destacado y un texto más audaz -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-pink-300 mb-2">
+                Creación de nuevo SP para visualizar transferencias
+            </h1>
+            <p class="text-lg text-gray-400">
+                Detalles del problema y propuesta de solución para la optimización del proceso.
+            </p>
+        </header>
+
+        <!-- Sección: Situación Actual -->
+        <section class="mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mb-4">Situación actual</h2>
+            <ul class="list-disc list-inside space-y-4 text-gray-300 leading-relaxed">
+                <li>
+                    El procedimiento actual encargado de buscar transferencias pendientes utiliza un SP que obtiene información de transferencias en una tabla que presenta inconsistencias.
+                </li>
+                <li>
+                    No existe algún SP que permita buscar transferencias con filtro de estados de TEF: <strong>Rechazada (REC)</strong>, <strong>Eliminada (ELI)</strong>, <strong>Procesada (PRP)</strong>.
+                </li>
+                <li>
+                    Se utilizan varios SP para obtener información completa de las transferencias, lo cual es ineficiente.
+                </li>
+            </ul>
+        </section>
+
+        <!-- Divisor de sección -->
+        <div class="section-divider"></div>
+
+        <!-- Sección: Solución Propuesta -->
+        <section class="mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mb-4">Solución Propuesta</h2>
+            <p class="text-gray-300 leading-relaxed">
+                La propuesta de solución consiste en la creación de un nuevo SP que permita obtener información consistente y que además disponga distintos filtros que permita mayor flexibilidad al momento de solicitar información
+            </p>
+            </br>
+            <p class="text-gray-300 leading-relaxed">
+                Algunos filtros necesarios:
+            </p>
+            <ul class="mt-4 list-disc list-inside space-y-2 text-gray-300">
+                <li>Estado.</li>
+                <li>Cuenta origen.</li>
+                <li>Cuenta destino.</li>
+                <li>Rut de apoderado.</li>
+                <li>Rut de destinatario.</li>
+            </ul>
+        </section>
+
+        <!-- Divisor de sección -->
+        <div class="section-divider"></div>
+
+        <!-- Sección: Fases de mejoras -->
+        <section>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mb-4">
+                Fases propuestas para optimización del proceso de TEF:
+            </h2>
+            <ol class="list-inside space-y-4 text-gray-300 leading-relaxed">
+                <li>
+                    <strong>Fase 1: Implementación en nuevas funcionalidades:</strong> Utilizar el nuevo SP en funcionalidades para la descarga de TEF a Excel y para el Panel de Transferencias, permitiendo visualizar TEF con estados Eliminada, Firmadas y Finalizadas.
+                </li>
+                <li>
+                    <strong>Fase 2: Corrección y optimización:</strong> Utilizar el nuevo SP para obtener transferencias pendientes, corrigiendo la inconsistencia de datos que posee el SP anterior y optimizando los tiempos de respuesta.
+                </li>
+                <li>
+                    <strong>Fase 3: Estandarización de la información:</strong> Implementar el nuevo SP en todas las funcionalidades que requieran obtener información de transferencias para mantener la misma estructura de datos y evitar la duplicidad de lógicas.
+                </li>
+                <li>
+                    <strong>Fase 4: Optimización con Redis:</strong> Se cargará la información de transferencias en Redis para reducir las consultas directas a la base de datos, mejorando significativamente el performance de los flujos.
+                </li>
+            </ol>
+        </section>
+
+    </div>
+</body>
+</html>
